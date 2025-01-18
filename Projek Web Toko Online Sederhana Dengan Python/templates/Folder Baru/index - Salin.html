@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Toko Online</title>
+</head>
+
+<body>
+    <header>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif%}
+        {% endwith%}
+        <p>Hallo {{ nama }} mau <a href="{{ url_for('logout')}}">LogOut?</a></p>
+        <h1>Toko Online</h1>
+        <form action="/src" method="POST">
+            <input type="text" id="name_src" name="src" required placeholder="Cari produk...">
+            <button type="submit">Cari</button>
+        </form>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Kategori</h2>
+            <div class="icon-menu">
+                <div class="icon-item">
+                    <img alt='icon laptop' height='60' src='#' width='60'>
+                    <form action='/src' method="POST">
+                        <button type="submit" name='src' value='parfum'>Parfum</button>
+                    </form>
+                </div>
+                <div class="icon-item">
+                    <img alt='icon buku' height='60' src='#' width='60'>
+                    <form action='/src' method="POST">
+                        <button type="submit" name='src' value='books'>Books</button>
+                    </form>
+                </div>
+                <div class="icon-item">
+                    <img alt='icon pakaian' height='60' src='#' width='60'>
+                    <form action='/src' method="POST">
+                        <button type="submit" name='src' value='fashion'>Fashion</button>
+                    </form>
+                </div>
+                <div class="icon-item">
+                    <img alt='icon laptop' height='60' src='#' width='60'>
+                    <form action='/src' method="POST">
+                        <button type="submit" name='src' value='electronics'>Electronics</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="flash-sale">
+            <h2>Flash Sale</h2>
+            <div class="tengah">
+                <div class="product">
+                    <img src="/static/img/Assus.png" alt="Laptop Assus">
+                    <p>Harga: Rp5.270.600</p>
+                        <a href='/product/1'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/HP elite book.png" alt="Laptop HP">
+                    <p>Harga: Rp49.680</p>
+                        <a href='/product/2'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/Laptop Gaming.png" alt="Laptop Gaming">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/3'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/Laptop Gaming.png" alt="Produk4">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/4'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>            
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/5'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/6'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/7'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/8'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/9'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+                <div class="product">
+                    <img src="/static/img/produk1.png" alt="Produk5">
+                    <p>Harga: Rp42.500</p>
+                        <a href='/product/10'>
+                            <p class="buy">Beli Sekarang</p>
+                        </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Toko Online. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Toko Online</title>
+</head>
+<body>
+    <header>
+        <h1>Detail Produk</h1>
+    </header>
+    <main>
+        <section class="product-list">
+            <article class="products">
+                <div class="icon-menu icon-item">
+                    {% if product.video %}
+                        <video controls poster="{{ product.image }}" autoplay muted loop>
+                            <source src="{{ product.video}}"  type="video/mp4">
+                            Brouser tidak mendukung tag <code>Video</code>
+                        </video>
+                    {% endif %}
+                        <img src="{{ product.image }}" alt="{{ product.name }}">
+                </div>
+                <h2>{{ product.name }}</h2><br>
+                <form action="/product/checkout/{{ product.id }}">
+                    <button class="buy" type="submit">Beli Sekarang</button>
+                </form><br>
+                <p class="description">{{ product.description.replace('\n','<br>') | safe }}</p>
+                <p class="harga">Harga: {{ product.price }}</p>
+                <form action="/product/checkout/{{ product.id }}">
+                    <button class="buy" type="submit">Beli Sekarang</button>
+                </form>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Toko Online. All rights reserved.</p>
+    </footer>
+</body>
+</html>

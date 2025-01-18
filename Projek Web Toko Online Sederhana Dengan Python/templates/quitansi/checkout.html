@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+    <main>
+        <div class="posisi-input ">
+            <form class="checkout" action="/process_checkout" method="POST">
+                <label for="name">Nama:</label><br>
+                <input type="text" class='input' id="name" name="name" value="{{ nama }}" readonly><br>
+                
+                <label for="alamat">Alamat:</label><br>
+                <input type="text" class='input' id="alamat" name="alamat" required><br>
+                
+                <label for="jumlah">Jumlah:</label><br>
+                <input type="text" class='input' inputmode="numeric" id="jumlah" name="jumlah" min='1' placeholder="Masukkan jumlah barang yang ingin dibeli"><br>
+                
+                <label for="tanggal">Tanggal:</label><br>
+                <input type="date" class='input' id="tanggal" name="tanggal" required><br>
+                
+                <label for="keterangan">Keterangan:</label><br>
+                <textarea id="keterangan" name="keterangan" required placeholder="-"></textarea><br>
+                
+                <label for="product">Produk:</label><br>
+                <input type="text" class='input' id="product" name="product" value="{{ product['name'] }}" readonly><br>
+                
+                <label for="harga">Harga:</label><br>
+                <input type="text" class='input' id="harga" name="harga" value="{{ product['price'] }}" readonly><br>
+                
+                <label for="pembayaran">Metode Pembayaran: </label>
+                <div class='opsi'>
+                    <select id="pembayaran" name="pembayaran" required>
+                        <option value="Transfer Bank">Transfer Bank</option>
+                        <option value="Dompet Digital">Dompet Digital</option>
+                        <option value="Kartu Kredit">Kartu Kredit</option>
+                        <option value="Kartu Kredit">Cash on Delivery (COD)</option>
+                    </select>
+                </div>
+                <button class='button' type="submit">Bayar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Toko Online. All rights reserved.</p>
+    </footer>
+</body>
+</html>
