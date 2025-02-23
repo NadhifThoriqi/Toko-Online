@@ -1,0 +1,48 @@
+{% extends "index.html" %} <!-- mengambil semua konten dari "index.html" -->
+
+{% block content %} <!-- blok yang dapat diisi atau ditimpa oleh template turunan. -->
+    <header>
+        <p>Hello {{ name }}. Welcome to the store and Happy Shopping</p>
+        <h1>Toko Online</h1>
+        <form class='src' action="/src" method="POST">
+            <input type="text" id="name_src" name="src" value = "{{searching}}" required>
+            <button type="submit">Cari</button>
+        </form>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{url_for('dashboard')}}">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="{{url_for('logout')}}">LogOut</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <div class='tengah'>
+                {% if search_ditemukan %}
+                        {% for item in search_ditemukan %}
+                            <div class="product">
+                                <img src="{{ item.image }}" alt="{{ item.judul }}">
+                                <h2>{{ item.judul }}</h2>
+                                <p>Harga: {{ item.price }}</p>
+                                <a class="buy" href="/product/{{ item.id }}">Beli Sekarang</a>
+                            </div>
+                        {% endfor %}
+                {% endif %}
+                
+                {% if not search_ditemukan %}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p style='color: black; text-align: center;'>{{ message | safe}}</p>
+                            {% endfor %}
+                        {% endif%}
+                    {% endwith %}
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

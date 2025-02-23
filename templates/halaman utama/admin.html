@@ -1,0 +1,58 @@
+{% extends "index.html" %} <!-- mengambil semua konten dari "index.html" -->
+
+{% block content %} <!-- blok yang dapat diisi atau ditimpa oleh template turunan. -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif%}
+    {% endwith%}
+    <div class="admin">
+        <h2>Stored Crodentials</h2>
+        <a href="{{ url_for('logout') }}">Back to Login</a>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Nama</th>
+            </tr>
+            
+            <tr>
+                <td>{{ nomor }}</td>
+                <td>{{ users.email }}</td>
+                <td>{{ users[users.email] }}</td>
+                <td>{{ users.username }}</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>nama</th>
+                <th>alamat</th>
+                <th>jumlah</th>
+                <th>harga</th>
+                <th>tanggal</th>
+                <th>keterngan</th>
+                <th>pembayaran</th>
+                <th>produk</th>
+                <th>total</th>
+            </tr>
+            {% for product in product %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.nama }}</td>
+                    <td>{{ product.alamat }}</td>
+                    <td>{{ product.jumlah }}</td>
+                    <td>{{ product.harga }}</td>
+                    <td>{{ product.tanggal }}</td>
+                    <td>{{ product.keterngan }}</td>
+                    <td>{{ product.pembayaran }}</td>
+                    <td>{{ product.produk }}</td>
+                    <td>{{ product.total }}</td>
+                </tr>
+            {% endfor%}
+        </table>
+    </div>
+{% endblock %}
